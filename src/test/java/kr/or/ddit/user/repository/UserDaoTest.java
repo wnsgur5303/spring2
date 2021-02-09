@@ -16,7 +16,6 @@ import kr.or.ddit.common.model.PageVo;
 import kr.or.ddit.test.config.ModelTestConfig;
 import kr.or.ddit.user.model.UserVo;
 
-//½ºÇÁ¸µ È¯°æ¿¡¼­ junit ÄÚµå¸¦ ½ÇÇà ==> junit ÄÚµåµµ ½ºÇÁ¸µ ºóÀ¸·Î µî·Ï
 public class UserDaoTest extends ModelTestConfig {
 
 	@Resource(name = "userDao")
@@ -24,15 +23,12 @@ public class UserDaoTest extends ModelTestConfig {
 
 	@Before
 	public void setup() {
-		// userDao = new UserDao();
 
-		// Å×½ºÆ®¿¡¼­ »ç¿ëÇÒ ½Å±Ô »ç¿ëÀÚ Ãß°¡
-		UserVo userVo = new UserVo("testUser", "Å×½ºÆ®»ç¿ëÀÚ", "testUserPass", new Date(), "´ë´ö", "´ëÀü Áß±¸ Áß¾Ó·Î 76", "4Ãþ",
+		UserVo userVo = new UserVo("testUser", "ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½", "testUserPass", new Date(), "ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½ ï¿½ß¾Ó·ï¿½ 76", "4ï¿½ï¿½",
 				"34940", "brown.png", "uuid-generated-filename.png");
 
 		userDao.registUser(userVo);
 
-		// ½Å±Ô ÀÔ·Â Å×½ºÆ®¸¦ À§ÇØ Å×½ºÆ® °úÁ¤¿¡¼­ ÀÔ·ÂµÈ µ¥ÀÌÅÍ¸¦ »èÁ¦
 		userDao.deleteUser("ddit_n");
 
 	}
@@ -42,7 +38,7 @@ public class UserDaoTest extends ModelTestConfig {
 		userDao.deleteUser("testUser");
 	}
 
-	// ÀüÃ¼ »ç¿ëÀÚ Á¶È¸ Å×½ºÆ®
+	// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½×½ï¿½Æ®
 	@Test
 	public void selectAllUserTest() {
 		/*** Given ***/
@@ -54,7 +50,7 @@ public class UserDaoTest extends ModelTestConfig {
 		assertEquals(17, userList.size());
 	}
 
-	// »ç¿ëÀÚ ¾ÆÀÌµð¸¦ ÀÌ¿ëÇÏ¿© Æ¯Á¤ »ç¿ëÀÚ Á¤º¸ Á¶È¸
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	@Test
 	public void selectUserTest() {
 		/*** Given ***/
@@ -65,10 +61,10 @@ public class UserDaoTest extends ModelTestConfig {
 
 		/*** Then ***/
 		assertNotNull(user);
-		assertEquals("ºê¶ó¿î", user.getUsernm());
+		assertEquals("ï¿½ï¿½ï¿½ï¿½", user.getUsernm());
 	}
 
-	// »ç¿ëÀÚ ÆäÀÌÂ¡ Á¶È¸ Å×½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½È¸ ï¿½×½ï¿½Æ®
 	@Test
 	public void selectPagingUserTest() {
 		/*** Given ***/
@@ -98,7 +94,7 @@ public class UserDaoTest extends ModelTestConfig {
 		/*** Given ***/
 
 		// userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
-		UserVo userVo = new UserVo("ddit", "´ë´öÀÎÀç", "dditpass", new Date(), "°³¹ß¿ø_m", "´ëÀü½Ã Áß±¸ Áß¾Ó·Î 76", "4Ãþ ´ë´öÀÎÀç°³¹ß¿ø",
+		UserVo userVo = new UserVo("ddit", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "dditpass", new Date(), "ï¿½ï¿½ï¿½ß¿ï¿½_m", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½ ï¿½ß¾Ó·ï¿½ 76", "4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç°³ï¿½ß¿ï¿½",
 				"34940", "brown.png", "uuid-generated-filename.png");
 
 		/*** When ***/
@@ -113,7 +109,7 @@ public class UserDaoTest extends ModelTestConfig {
 		/*** Given ***/
 
 		// userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode
-		UserVo userVo = new UserVo("ddit_n", "´ë´öÀÎÀç", "dditpass", new Date(), "°³¹ß¿ø_m", "´ëÀü½Ã Áß±¸ Áß¾Ó·Î 76", "4Ãþ ´ë´öÀÎÀç°³¹ß¿ø",
+		UserVo userVo = new UserVo("ddit_n", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "dditpass", new Date(), "ï¿½ï¿½ï¿½ß¿ï¿½_m", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½ ï¿½ß¾Ó·ï¿½ 76", "4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç°³ï¿½ß¿ï¿½",
 				"34940", "brown.png", "uuid-generated-filename.png");
 
 		/*** When ***/
@@ -123,11 +119,11 @@ public class UserDaoTest extends ModelTestConfig {
 		assertEquals(1, insertCnt);
 	}
 
-	// »èÁ¦ Å×½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®
 	@Test
 	public void deleteUserTest() {
 		/*** Given ***/
-		// ÇØ´ç Å×½ºÆ®°¡ ½ÇÇàµÉ ¶§´Â testUser¶ó´Â »ç¿ëÀÚ°¡ before ¸Þ¼Òµå¿¡ ÀÇÇØ µî·ÏÀÌ µÈ»óÅÂ
+		// ï¿½Ø´ï¿½ ï¿½×½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ testUserï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ before ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È»ï¿½ï¿½ï¿½
 		String userid = "testUser";
 
 		/*** When ***/
